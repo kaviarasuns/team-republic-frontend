@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BASE_URL } from "../../global";
+import { BASE_URL, RENDER_URL } from "../../global";
 import "./singlePost.css";
 
 function SinglePost() {
@@ -14,7 +14,7 @@ function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get(`${BASE_URL}/posts/${path}`);
+      const res = await axios.get(`${RENDER_URL}/posts/${path}`);
       setPost(res.data);
     };
     getPost();

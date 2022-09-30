@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { BASE_URL } from "../../global";
+import { BASE_URL, RENDER_URL } from "../../global";
 import "./home.css";
 
 function Home() {
@@ -16,7 +16,7 @@ function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get(`${BASE_URL}/posts${search}`);
+      const res = await axios.get(`${RENDER_URL}/posts${search}`);
       setPosts(res.data);
     };
     fetchPosts();

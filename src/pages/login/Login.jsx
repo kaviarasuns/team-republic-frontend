@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
-import { BASE_URL } from "../../global";
+import { BASE_URL, RENDER_URL } from "../../global";
 import "./login.css";
 
 export default function Login() {
@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post(`${BASE_URL}/auth/login`, {
+      const res = await axios.post(`${RENDER_URL}/auth/login`, {
         username: userRef.current.value,
         password: passwordRef.current.value,
       });

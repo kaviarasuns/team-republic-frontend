@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { Context } from "../../context/Context";
 import "./write.css";
-import { BASE_URL } from "../../global";
+import { BASE_URL, RENDER_URL } from "../../global";
 
 export const Write = () => {
   const [title, setTitle] = useState("");
@@ -24,11 +24,11 @@ export const Write = () => {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post(`${BASE_URL}/upload`, data);
+        await axios.post(`${RENDER_URL}/upload`, data);
       } catch (err) {}
     }
     try {
-      const res = axios.post(`${BASE_URL}/posts`, newPost);
+      const res = axios.post(`${RENDER_URL}/posts`, newPost);
       console.log(newPost);
       window.location.replace("http://localhost:3000/");
     } catch (err) {}

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BASE_URL } from "../../global";
+import { BASE_URL, RENDER_URL } from "../../global";
 import "./sidebar.css";
 
 export default function Sidebar() {
@@ -9,7 +9,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get(`${BASE_URL}/categories`);
+      const res = await axios.get(`${RENDER_URL}/categories`);
       setCats(res.data);
     };
     getCats();
